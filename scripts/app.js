@@ -1,13 +1,11 @@
-
 const App = () => {
-return(
+  return (
     <div>
-
-    <Header />
-
-    <Hotels />
+      <Header />
+      <Filters />
+      <Hotels />
     </div>
-)
-}
+  );
+};
 
-ReactDOM.render(<App />,document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
