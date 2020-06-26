@@ -3,7 +3,9 @@ const App = () => {
 return(
     <div>
 
-    <Componente />
+    <Header />
+
+    <Hotels />
     </div>
 )
 }
