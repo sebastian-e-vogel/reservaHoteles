@@ -1,7 +1,11 @@
-const Hotels = () => {
+const Hotels = (props) => {
+
+
+
   return (
+    
     <div>
-      {hotelsData.map((hotel) => {
+      {props.filteredHotels.map((hotel) => {
         return (
           <Hotel
             name={hotel.name}
