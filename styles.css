@@ -1,0 +1,24 @@
+/* --HEADER --*/
+/* --HEADER --*/
+/* --Card --*/
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card {
+  display: flex;
+  max-width: 300px;
+  margin: 15px;
+  height: 100%;
+}
+.card-hotel {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+.card-hotel img {
+  width: 300px;
+  height: 300px;
+}
+/* --HEADER --*/
+/* --HEADER --*/

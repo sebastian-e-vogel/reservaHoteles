@@ -4,10 +4,11 @@ const Hotels = (props) => {
 
   return (
     
-    <div>
+    <div className="card-container">
       {props.filteredHotels.map((hotel) => {
         return (
           <Hotel
+          key={hotel.slug}
             name={hotel.name}
             photo={hotel.photo}
             description={hotel.description}

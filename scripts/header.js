@@ -12,14 +12,14 @@ class Header extends React.Component {
     this.setState({ until: fecha });
   };
 
-  selectedCountry = (country) => {
-    this.props.filterCountry(country);
+  selectedCountry = (countryValue, filterId) => {
+    this.props.filterCountry(countryValue, filterId);
   };
-  selectedPrice = (price) => {
-    this.props.filterPrice(price);
+  selectedPrice = (priceValue, filterId) => {
+    this.props.filterPrice(priceValue, filterId);
   };
-  selectedRooms = (rooms) => {
-   this.props.filterRooms(rooms);
+  selectedRooms = (roomsValue, filterId) => {
+   this.props.filterRooms(roomsValue, filterId);
   };
 
   render() {
