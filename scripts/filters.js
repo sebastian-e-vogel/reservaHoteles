@@ -21,7 +21,7 @@ class Filters extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='cointaner-filters'>
         <input type="date" onChange={this.handleSinceDateChange} />
         <input type="date" onChange={this.handleUntilDateChange} />
 

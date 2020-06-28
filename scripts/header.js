@@ -25,9 +25,12 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <h1 className="header-title"> Hoteles</h1>
+        <h1 className="header-title"> Hoteles 
+
+</h1>
+
         <p className="date-header">
-          desde el {this.state.since} hasta el {this.state.until}
+          Desde el {this.state.since} hasta el {this.state.until}
         </p>
         <Filters
           sinceDate={this.handleSinceDate}

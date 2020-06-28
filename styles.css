@@ -1,24 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@300&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
 /* --HEADER --*/
-/* --HEADER --*/
-/* --Card --*/
-.card-container{
+
+.header {
+  background: #102542;
+  color: #fcfffd;
+}
+
+.header-title,
+.date-header {
+  padding: 20px;
+  font-family: "Roboto";
+    font-size: 2rem;
+}
+
+
+
+/* --FILTERS --*/
+
+.cointaner-filters {
+    background: #f87060;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2px;
+  }
+  
+  .cointaner-filters input,
+  select {
+    border: 0;
+    padding: 0;
+    width: 19%;
+    height: 30px;
+  }
+
+/* --Card --*/
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #fff;
 }
 .card {
   display: flex;
   max-width: 300px;
   margin: 15px;
   height: 100%;
+  min-height: 600px;
 }
 .card-hotel {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 400px;
+  border:1px solid lightgrey;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 1rem;
 }
 .card-hotel img {
   width: 300px;
   height: 300px;
 }
+
+.card-title{
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2px;
+}
+
+.card-container p{
+    padding: 5px;
+    font-family: 'montserrat';
+
+}
+
+.card-description{
+    font-size: 0.9rem;
+}
+
+.card-ubication, .card-rooms, .card-price{
+    font-size: 0.7rem;
+
+}
+
 /* --HEADER --*/
 /* --HEADER --*/
