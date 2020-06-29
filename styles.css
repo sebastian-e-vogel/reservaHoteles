@@ -33,14 +33,35 @@
     justify-content: space-around;
     padding: 2px;
   }
-  
-  .cointaner-filters input,
-  select {
+  .cointaner-filters input, select{
+    width: 100%;
+    background: white;
     border: 0;
-    padding: 0;
-    width: 19%;
-    height: 30px;
   }
+
+  .inside-input, .outside-input, .ubication-input, .price-input, .room-input{
+  
+    background: white;
+    display: flex;
+    text-align: center;
+ 
+  }
+  .inside-input, .outside-input, input, .ubication-input, .price-input, .room-input{
+    width: 18%;
+  }
+  .ubication-input, .price-input, .room-input{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .ubication-input i, .price-input i, .room-input i, .outside-input i, .inside-input i{
+    background:white;
+    color: black;
+    width: 30px;
+    padding: 5px;
+  } 
+ 
 
 /* --Card --*/
 .card-container {
@@ -69,6 +90,34 @@
   height: 300px;
 }
 
+.card-ubication, .card-rooms, .card-price {
+    display: flex;
+    padding: 0;
+}
+.card-ubication, .card-rooms, i{
+    background: #f87060;
+    color: white;
+}
+
+.solid {
+    background: #f87060;
+    color: white;
+    font-weight: bold;
+}
+
+.empty{
+    background: #f87060;
+    color: grey;
+}
+
+.fa-usd, .fa-map-marker, .fa-bed{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
 .card-title{
     font-family: 'Roboto';
     font-size: 1.2rem;
@@ -79,17 +128,31 @@
 .card-container p{
     padding: 5px;
     font-family: 'montserrat';
-
-}
-
-.card-description{
-    font-size: 0.9rem;
-}
-
-.card-ubication, .card-rooms, .card-price{
     font-size: 0.7rem;
 
 }
 
-/* --HEADER --*/
-/* --HEADER --*/
+
+.card-ubication, .card-rooms, .card-price{
+    font-size: 0.7rem;
+    background: lightgrey;
+    font-weight: bold;
+
+}
+.card-price{
+    background: #f87060;
+    display: flex;
+    justify-content: center;
+}
+
+.reserve{
+    background: #102542;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: 0;
+}
+
+

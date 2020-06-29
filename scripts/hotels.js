@@ -9,6 +9,7 @@ const Hotels = (props) => {
         return (
           <Hotel
           key={hotel.slug}
+          slug={hotel.slug}
             name={hotel.name}
             photo={hotel.photo}
             description={hotel.description}

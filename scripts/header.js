@@ -1,7 +1,7 @@
 class Header extends React.Component {
   state = {
-    since: 4,
-    until: 4,
+    since: "Seleccione una fecha",
+    until: "Seleccione una fecha",
   };
 
   handleSinceDate = (fecha) => {
@@ -25,10 +25,8 @@ class Header extends React.Component {
   render() {
     return (
       <div className="header">
-        <h1 className="header-title"> Hoteles 
-
-</h1>
-
+        <h1 className="header-title"> Hoteles </h1>
+        
         <p className="date-header">
           Desde el {this.state.since} hasta el {this.state.until}
         </p>
