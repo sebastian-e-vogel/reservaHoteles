@@ -4,12 +4,15 @@ class Header extends React.Component {
     until: "Seleccione una fecha",
   };
 
-  handleSinceDate = (fecha) => {
-    this.setState({ since: fecha });
+  handleSinceDate = (dateValue, filterId) => {
+    this.setState({ since: dateValue });
+    this.props.filterDateFrom(dateValue, filterId)
   };
 
-  handleUntilDate = (fecha) => {
-    this.setState({ until: fecha });
+  handleUntilDate = (dateValue, filterId) => {
+    this.setState({ until: dateValue });
+    this.props.filterDateto(dateValue, filterId)
+
   };
 
   selectedCountry = (countryValue, filterId) => {

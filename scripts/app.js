@@ -6,6 +6,8 @@ class App extends React.Component {
       country: "all",
       price: "all",
       room: "all",
+      availabilityFrom: "",
+      availabilityTo: "",
     },
   };
 
@@ -23,6 +25,19 @@ class App extends React.Component {
 
   // Cuando se selecciona una opcion nueva en el input, se setea en el estado el nuevo filtro aplicado
   filterHotelsById = (filterValue, filterId) => {
+    if (filterId === "availabilityFrom" || filterId === "availabilityTo") {
+      let filtroFecha = filterValue.split("-").join(",");
+      let fecha = new Date(filtroFecha);
+      fecha.setHours(23)
+      fecha.setMinutes(59)
+      fecha.setSeconds(59)
+
+
+      return this.setState({
+        filters: { ...this.state.filters, [filterId]: fecha.valueOf() },
+      });
+    }
+
     this.setState({
       filters: { ...this.state.filters, [filterId]: filterValue },
     });
@@ -46,7 +61,7 @@ class App extends React.Component {
         return hotel.price.toString() === this.state.filters.price;
       }
     });
-  // la lista filtrada por pais y precio se filtra por cantidad de habitaciones
+    // la lista filtrada por pais y precio se filtra por cantidad de habitaciones
     let hotelsFilteredByRooms = hotelsFilteredByPrice.filter((hotel) => {
       if (this.state.filters.room === "all") {
         return hotel;
@@ -57,8 +72,32 @@ class App extends React.Component {
       }
       return hotel.rooms > 20;
     });
+    //filtrado por fecha de entrada
+    let hotelsFilteredByGetInDate = hotelsFilteredByRooms.filter((hotel) => {
+      return  (this.state.filters.availabilityFrom >= hotel.availabilityFrom && 
+      this.state.filters.availabilityFrom <= hotel.availabilityTo );
+    });
 
-    return hotelsFilteredByRooms;
+    //filtrado por fecha de salida
+    let hotelsFilteredByGetOutDate = hotelsFilteredByGetInDate.length ? ( hotelsFilteredByGetInDate.filter((hotel) => {
+      return  (
+      this.state.filters.availabilityTo >= this.state.filters.availabilityFrom &&
+      this.state.filters.availabilityTo <= hotel.availabilityTo  )
+       })
+       ) : (hotelsFilteredByRooms.filter((hotel) => {
+      return     (
+      this.state.filters.availabilityTo >= hotel.availabilityFrom &&
+      this.state.filters.availabilityTo <= hotel.availabilityTo
+      )
+       })
+       )
+  
+     if(hotelsFilteredByGetOutDate.length){
+      return hotelsFilteredByGetOutDate
+    }else if(hotelsFilteredByGetInDate.length){
+      return hotelsFilteredByGetInDate
+    } return hotelsFilteredByRooms
+
   };
 
   render() {
@@ -68,16 +107,10 @@ class App extends React.Component {
           filterCountry={this.filterHotelsById}
           filterPrice={this.filterHotelsById}
           filterRooms={this.filterHotelsById}
+          filterDateFrom={this.filterHotelsById}
+          filterDateto={this.filterHotelsById}
         />
-        <Hotels
-          filteredHotels={
-            this.state.filteredHotels ? (
-              this.state.filteredHotels
-            ) : (
-              <h1>WAITING</h1>
-            )
-          }
-        />
+        <Hotels filteredHotels={this.state.filteredHotels} />
       </div>
     );
   }

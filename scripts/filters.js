@@ -1,10 +1,10 @@
 class Filters extends React.Component {
   handleSinceDateChange = (e) => {
-    this.props.sinceDate(e.target.value);
+    this.props.sinceDate(e.target.value, e.target.id);
   };
 
   handleUntilDateChange = (e) => {
-    this.props.untilDate(e.target.value);
+    this.props.untilDate(e.target.value, e.target.id);
   };
 
   handleSelectCountry = (e) => {
@@ -22,11 +22,11 @@ class Filters extends React.Component {
       <div className="cointaner-filters">
         <div className="inside-input">
           <i className="fa fa-1x fa-sign-in" aria-hidden="true"></i>
-          <input type="date" onChange={this.handleSinceDateChange} />
+          <input id="availabilityFrom" type="date" onChange={this.handleSinceDateChange} />
         </div>
         <div className="outside-input">
           <i className="fa fa-1x fa-sign-out" aria-hidden="true"></i>
-          <input type="date" onChange={this.handleUntilDateChange} />
+          <input id="availabilityTo" type="date" onChange={this.handleUntilDateChange} />
         </div>
         <div className='ubication-input'> 
         <i className="fa fa-1x fa-map-marker" aria-hidden="true"></i>
