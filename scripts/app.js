@@ -77,21 +77,28 @@ class App extends React.Component {
       return  (this.state.filters.availabilityFrom >= hotel.availabilityFrom && 
       this.state.filters.availabilityFrom <= hotel.availabilityTo );
     });
+  
 
+
+let hotelsFilteredByGetOutDate = []
     //filtrado por fecha de salida
-    let hotelsFilteredByGetOutDate = hotelsFilteredByGetInDate.length ? ( hotelsFilteredByGetInDate.filter((hotel) => {
+     if(hotelsFilteredByGetInDate.length > 0 && this.state.filters.availabilityTo < this.state.filters.availabilityFrom 
+     && this.state.filters.availabilityTo){
+        alert('la fecha de salida no puede ser anterior a la de entrada')
+        return hotelsFilteredByGetOutDate = []
+    }else if( hotelsFilteredByGetInDate.length ){
+       hotelsFilteredByGetOutDate =  hotelsFilteredByGetInDate.filter((hotel) => {
       return  (
-      this.state.filters.availabilityTo >= this.state.filters.availabilityFrom &&
       this.state.filters.availabilityTo <= hotel.availabilityTo  )
        })
-       ) : (hotelsFilteredByRooms.filter((hotel) => {
-      return     (
+    }
+     hotelsFilteredByGetOutDate = hotelsFilteredByRooms.filter((hotel) => {
+      return(
       this.state.filters.availabilityTo >= hotel.availabilityFrom &&
       this.state.filters.availabilityTo <= hotel.availabilityTo
       )
        })
-       )
-  
+
      if(hotelsFilteredByGetOutDate.length){
       return hotelsFilteredByGetOutDate
     }else if(hotelsFilteredByGetInDate.length){
@@ -108,7 +115,7 @@ class App extends React.Component {
           filterPrice={this.filterHotelsById}
           filterRooms={this.filterHotelsById}
           filterDateFrom={this.filterHotelsById}
-          filterDateto={this.filterHotelsById}
+          filterDateTo={this.filterHotelsById}
         />
         <Hotels filteredHotels={this.state.filteredHotels} />
       </div>

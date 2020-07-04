@@ -1,36 +1,21 @@
 class Filters extends React.Component {
-  handleSinceDateChange = (e) => {
-    this.props.sinceDate(e.target.value, e.target.id);
-  };
-
-  handleUntilDateChange = (e) => {
-    this.props.untilDate(e.target.value, e.target.id);
-  };
-
-  handleSelectCountry = (e) => {
-    this.props.selectCountry(e.target.value, e.target.id);
-  };
-  handleSelectPrice = (e) => {
-    this.props.selectPrice(e.target.value, e.target.id);
-  };
-  handleSelectRooms = (e) => {
-    this.props.selectRooms(e.target.value, e.target.id);
-  };
+  
+ 
 
   render() {
     return (
       <div className="cointaner-filters">
         <div className="inside-input">
           <i className="fa fa-1x fa-sign-in" aria-hidden="true"></i>
-          <input id="availabilityFrom" type="date" onChange={this.handleSinceDateChange} />
+          <input id="availabilityFrom" type="date" onChange={(e) => this.props.sinceDate(e.target.value, e.target.id)} />
         </div>
         <div className="outside-input">
           <i className="fa fa-1x fa-sign-out" aria-hidden="true"></i>
-          <input id="availabilityTo" type="date" onChange={this.handleUntilDateChange} />
+          <input id="availabilityTo" type="date" onChange={(e)=> this.props.untilDate(e.target.value, e.target.id)} />
         </div>
         <div className='ubication-input'> 
         <i className="fa fa-1x fa-map-marker" aria-hidden="true"></i>
-        <select id="country" onChange={this.handleSelectCountry}>
+        <select id="country" onChange={(e) => this.props.sinceDate(e.target.value, e.target.id)}>
           <option value="all">Todos los paises</option>
           <option value="Argentina">Argentina</option>
           <option value="Brasil">Brasil</option>
@@ -40,7 +25,7 @@ class Filters extends React.Component {
         </div>
          <div className='price-input'> 
           <i className= "fa fa-1x fa-usd"></i>
-        <select id="price" onChange={this.handleSelectPrice}>
+        <select id="price" onChange={(e)=> this.props.selectPrice(e.target.value, e.target.id)}>
           <option value="all">Cualquier Precio</option>
           <option value={1}>$</option>
           <option value={2}>$$</option>
@@ -50,7 +35,7 @@ class Filters extends React.Component {
         </div>
          <div className='room-input'> 
          <i className="fa fa-1x fa-bed" aria-hidden="true"></i>
-        <select id="room" onChange={this.handleSelectRooms}>
+        <select id="room" onChange={(e)=> this.props.selectRooms(e.target.value, e.target.id)}>
           <option value="all">Cualquier tamaño</option>
           <option value="pequeño">hotel pequeño</option>
           <option value="mediano">hotel mediano</option>

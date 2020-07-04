@@ -11,7 +11,7 @@ class Header extends React.Component {
 
   handleUntilDate = (dateValue, filterId) => {
     this.setState({ until: dateValue });
-    this.props.filterDateto(dateValue, filterId)
+    this.props.filterDateTo(dateValue, filterId)
 
   };
 
