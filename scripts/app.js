@@ -32,6 +32,8 @@ class App extends React.Component {
 
   // funcion para aplicar los filtros seleccionados en los inputs.
   filterHotels = () => {
+        debugger;
+
     //filtrado por pais
     let hotelsFilteredByCountry = this.state.hotels.filter((hotel) => {
       if (this.state.filters.country === "all") {
@@ -86,7 +88,7 @@ class App extends React.Component {
       );
     });
 
-    if (hotelsFilteredByGetOutDate.length) {
+    if (this.state.filters.availabilityTo > 0) {
       return hotelsFilteredByGetOutDate;
     } else if (this.state.filters.availabilityFrom > 0) {
       return hotelsFilteredByGetInDate;
