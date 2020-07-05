@@ -64,7 +64,7 @@ class App extends React.Component {
       this.state.filters.availabilityFrom < today.valueOf() &&
       this.state.filters.availabilityFrom
     ) {
-      alert("la fecha de salida no puede ser anterior a la de entrada");
+      alert("la fecha de entrada no puede ser anterior a hoy");
       return hotelsFilteredByGetInDate;
     } else {
        hotelsFilteredByGetInDate = hotelsFilteredByRooms.filter((hotel) => {
