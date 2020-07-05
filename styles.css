@@ -171,3 +171,19 @@ i {
   cursor: pointer;
   border: 0;
 }
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 781px) {
+  .cointaner-filters{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .cointaner-filters div{
+    width: 80%;
+    margin: 5px 0 5px 0;
+  }
+}
