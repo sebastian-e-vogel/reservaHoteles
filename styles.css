@@ -7,8 +7,6 @@
   box-sizing: border-box;
 }
 
-
-
 /* --HEADER --*/
 
 .header {
@@ -20,48 +18,62 @@
 .date-header {
   padding: 20px;
   font-family: "Roboto";
-    font-size: 2rem;
 }
 
-
+.date {
+  font-weight: bold;
+  font-size: 1.2em;
+}
 
 /* --FILTERS --*/
 
 .cointaner-filters {
-    background: #f87060;
-    display: flex;
-    justify-content: space-around;
-    padding: 2px;
-  }
-  .cointaner-filters input, select{
-    width: 100%;
-    background: white;
-    border: 0;
-  }
+  background: #f87060;
+  display: flex;
+  justify-content: space-around;
+  padding: 2px;
+}
+.cointaner-filters input,
+select {
+  width: 100%;
+  background: white;
+  border: 0;
+}
 
-  .inside-input, .outside-input, .ubication-input, .price-input, .room-input{
-  
-    background: white;
-    display: flex;
-    text-align: center;
- 
-  }
-  .inside-input, .outside-input, input, .ubication-input, .price-input, .room-input{
-    width: 18%;
-  }
-  .ubication-input, .price-input, .room-input{
-    display: flex;
-    justify-content: space-between;
-  }
+.inside-input,
+.outside-input,
+.ubication-input,
+.price-input,
+.room-input {
+  background: white;
+  display: flex;
+  text-align: center;
+}
+.inside-input,
+.outside-input,
+input,
+.ubication-input,
+.price-input,
+.room-input {
+  width: 18%;
+}
+.ubication-input,
+.price-input,
+.room-input {
+  display: flex;
+  justify-content: space-between;
+}
 
-
-  .ubication-input i, .price-input i, .room-input i, .outside-input i, .inside-input i{
-    background:white;
-    color: black;
-    width: 30px;
-    padding: 5px;
-  } 
- 
+.ubication-input i,
+.price-input i,
+.room-input i,
+.outside-input i,
+.inside-input i {
+  background: white;
+  color: black;
+  width: 30px;
+  padding: 5px;
+}
 
 /* --Card --*/
 .card-container {
@@ -82,7 +94,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 400px;
-  border:1px solid lightgrey;
+  border: 1px solid lightgrey;
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 1rem;
 }
 .card-hotel img {
@@ -90,69 +102,72 @@
   height: 300px;
 }
 
-.card-ubication, .card-rooms, .card-price {
-    display: flex;
-    padding: 0;
+.card-ubication,
+.card-rooms,
+.card-price {
+  display: flex;
+  padding: 0;
 }
-.card-ubication, .card-rooms, i{
-    background: #f87060;
-    color: white;
+.card-ubication,
+.card-rooms,
+i {
+  background: #f87060;
+  color: white;
 }
 
 .solid {
-    background: #f87060;
-    color: white;
-    font-weight: bold;
+  background: #f87060;
+  color: white;
+  font-weight: bold;
 }
 
-.empty{
-    background: #f87060;
-    color: grey;
+.empty {
+  background: #f87060;
+  color: grey;
 }
 
-.fa-usd, .fa-map-marker, .fa-bed{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
+.fa-usd,
+.fa-map-marker,
+.fa-bed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 }
 
-.card-title{
-    font-family: 'Roboto';
-    font-size: 1.2rem;
-    text-align: center;
-    padding: 2px;
+.card-title {
+  font-family: "Roboto";
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2px;
 }
 
-.card-container p{
-    padding: 5px;
-    font-family: 'montserrat';
-    font-size: 0.7rem;
-
+.card-container p {
+  padding: 5px;
+  font-family: "montserrat";
+  font-size: 0.7rem;
 }
 
-
-.card-ubication, .card-rooms, .card-price{
-    font-size: 0.7rem;
-    background: lightgrey;
-    font-weight: bold;
-
+.card-ubication,
+.card-rooms,
+.card-price {
+  font-size: 0.7rem;
+  background: lightgrey;
+  font-weight: bold;
 }
-.card-price{
-    background: #f87060;
-    display: flex;
-    justify-content: center;
-}
-
-.reserve{
-    background: #102542;
-    width: 100%;
-    height: 40px;
-    color: white;
-    font-size: 0.8rem;
-    cursor: pointer;
-    border: 0;
+.card-price {
+  background: #f87060;
+  display: flex;
+  justify-content: center;
 }
 
-
+.reserve {
+  background: #102542;
+  width: 100%;
+  height: 40px;
+  color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 0;
+}
