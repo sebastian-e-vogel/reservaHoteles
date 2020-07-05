@@ -1,6 +1,6 @@
 class Header extends React.Component {
   state = {
-    availabilityFrom: "Seleccionar fecha de entrada",
+    availabilityFrom: "Seleccione fecha de entrada",
     availabilityTo: "Seleccione fecha de salida",
   };
 
