@@ -1,4 +1,5 @@
 const Filters = (props) => {
+  let { sinceDate, untilDate, selectCountry, selectPrice, selectRooms } = props;
   return (
     <div className="cointaner-filters">
       <div className="inside-input">
@@ -6,7 +7,7 @@ const Filters = (props) => {
         <input
           id="availabilityFrom"
           type="date"
-          onChange={(e) => props.sinceDate(e.target.value, e.target.id)}
+          onChange={(e) => sinceDate(e.target.value, e.target.id)}
         />
       </div>
       <div className="outside-input">
@@ -14,14 +15,14 @@ const Filters = (props) => {
         <input
           id="availabilityTo"
           type="date"
-          onChange={(e) => props.untilDate(e.target.value, e.target.id)}
+          onChange={(e) => untilDate(e.target.value, e.target.id)}
         />
       </div>
       <div className="ubication-input">
         <i className="fa fa-1x fa-map-marker" aria-hidden="true"></i>
         <select
           id="country"
-          onChange={(e) => props.selectCountry(e.target.value, e.target.id)}
+          onChange={(e) => selectCountry(e.target.value, e.target.id)}
         >
           <option value="all">Todos los paises</option>
           <option value="Argentina">Argentina</option>
@@ -34,7 +35,7 @@ const Filters = (props) => {
         <i className="fa fa-1x fa-usd"></i>
         <select
           id="price"
-          onChange={(e) => props.selectPrice(e.target.value, e.target.id)}
+          onChange={(e) => selectPrice(e.target.value, e.target.id)}
         >
           <option value="all">Cualquier Precio</option>
           <option value={1}>$</option>
@@ -47,7 +48,7 @@ const Filters = (props) => {
         <i className="fa fa-1x fa-bed" aria-hidden="true"></i>
         <select
           id="room"
-          onChange={(e) => props.selectRooms(e.target.value, e.target.id)}
+          onChange={(e) => selectRooms(e.target.value, e.target.id)}
         >
           <option value="all">Cualquier tamaño</option>
           <option value="pequeño">hotel pequeño</option>

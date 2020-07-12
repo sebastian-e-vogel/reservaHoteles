@@ -5,8 +5,7 @@ class Header extends React.Component {
   };
 
   textoFecha = (fecha) => {
-    var numDiaSem = fecha.getDay(); //getDay() devuelve el dia de la semana.(0-6).
-    //Creamos un Array para los nombres de los días
+    var numDiaSem = fecha.getDay();
     var diasSemana = [
       "Domingo",
       "Lunes",
@@ -16,8 +15,7 @@ class Header extends React.Component {
       "Viernes",
       "Sábado",
     ];
-    var diaLetras = diasSemana[fecha.getDay()]; //El día de la semana en letras. getDay() devuelve el dia de la semana.(0-6).
-    //Otro Array para los nombres de los meses
+    var diaLetras = diasSemana[fecha.getDay()];
     var meses = new Array(
       "Enero",
       "Febrero",
@@ -35,9 +33,9 @@ class Header extends React.Component {
     var mesLetras = meses[fecha.getMonth()]; //El mes en letras
     var diaMes = fecha.getDate(); //getDate() devuelve el dia(1-31).
     var anho = fecha.getFullYear(); //getFullYear() devuelve el año(4 dígitos).
-    var devolver =
+    var fechaCambiada =
       diaLetras + ", " + diaMes + " de " + mesLetras + " de " + anho;
-    return devolver;
+    return fechaCambiada;
   };
 
   updateDate = (dateValue, filterId) => {
@@ -52,6 +50,7 @@ class Header extends React.Component {
   };
 
   render() {
+    let { filterHotel } = this.props;
     return (
       <div className="header">
         <h1 className="header-title"> Hoteles </h1>
@@ -62,13 +61,13 @@ class Header extends React.Component {
         </p>
         <Filters
           selectCountry={(countryValue, filterId) =>
-            this.props.filterHotel(countryValue, filterId)
+            filterHotel(countryValue, filterId)
           }
           selectPrice={(priceValue, filterId) =>
-            this.props.filterHotel(priceValue, filterId)
+            filterHotel(priceValue, filterId)
           }
           selectRooms={(roomsValue, filterId) =>
-            this.props.filterHotel(roomsValue, filterId)
+            filterHotel(roomsValue, filterId)
           }
           sinceDate={this.updateDate}
           untilDate={this.updateDate}

@@ -32,27 +32,28 @@ class App extends React.Component {
 
   // funcion para aplicar los filtros seleccionados en los inputs.
   filterHotels = () => {
+    let { filters, hotels } = this.state;
     //filtrado por pais
-    let hotelsFilteredByCountry = this.state.hotels.filter((hotel) => {
-      if (this.state.filters.country === "all") {
+    let hotelsFilteredByCountry = hotels.filter((hotel) => {
+      if (filters.country === "all") {
         return hotel;
       }
       return hotel.country === this.state.filters.country;
     });
     //la lista filtrada por pais ahora se filtra por precio
     let hotelsFilteredByPrice = hotelsFilteredByCountry.filter((hotel) => {
-      if (this.state.filters.price === "all") {
+      if (filters.price === "all") {
         return hotel;
       }
-      return hotel.price.toString() === this.state.filters.price;
+      return hotel.price.toString() === filters.price;
     });
     // la lista filtrada por pais y precio se filtra por cantidad de habitaciones
     let hotelsFilteredByRooms = hotelsFilteredByPrice.filter((hotel) => {
-      if (this.state.filters.room === "all") {
+      if (filters.room === "all") {
         return hotel;
-      } else if (this.state.filters.room === "pequeño") {
+      } else if (filters.room === "pequeño") {
         return hotel.rooms <= 10;
-      } else if (this.state.filters.room === "mediano") {
+      } else if (filters.room === "mediano") {
         return hotel.rooms > 10 && hotel.rooms <= 20;
       }
       return hotel.rooms > 20;
@@ -61,16 +62,16 @@ class App extends React.Component {
     //filtrado por fecha de entrada
     let hotelsFilteredByGetInDate = [];
     if (
-      this.state.filters.availabilityFrom < today.valueOf() &&
-      this.state.filters.availabilityFrom
+      filters.availabilityFrom < today.valueOf() &&
+      filters.availabilityFrom
     ) {
       alert("la fecha de entrada no puede ser anterior a hoy");
       return hotelsFilteredByGetInDate;
     } else {
-       hotelsFilteredByGetInDate = hotelsFilteredByRooms.filter((hotel) => {
+      hotelsFilteredByGetInDate = hotelsFilteredByRooms.filter((hotel) => {
         return (
-          this.state.filters.availabilityFrom >= hotel.availabilityFrom &&
-          this.state.filters.availabilityFrom <= hotel.availabilityTo
+          filters.availabilityFrom >= hotel.availabilityFrom &&
+          filters.availabilityFrom <= hotel.availabilityTo
         );
       });
     }
@@ -79,39 +80,41 @@ class App extends React.Component {
     //filtrado por fecha de salida
     if (
       hotelsFilteredByGetInDate.length > 0 &&
-      this.state.filters.availabilityTo < this.state.filters.availabilityFrom &&
-      this.state.filters.availabilityTo
+      filters.availabilityTo < filters.availabilityFrom &&
+      filters.availabilityTo
     ) {
       alert("la fecha de salida no puede ser anterior a la de entrada");
       return hotelsFilteredByGetOutDate;
     } else if (hotelsFilteredByGetInDate.length) {
       hotelsFilteredByGetOutDate = hotelsFilteredByGetInDate.filter((hotel) => {
-        return this.state.filters.availabilityTo <= hotel.availabilityTo;
+        return filters.availabilityTo <= hotel.availabilityTo;
       });
     }
     hotelsFilteredByGetOutDate = hotelsFilteredByRooms.filter((hotel) => {
       return (
-        this.state.filters.availabilityTo >= hotel.availabilityFrom &&
-        this.state.filters.availabilityTo <= hotel.availabilityTo
+        filters.availabilityTo >= hotel.availabilityFrom &&
+        filters.availabilityTo <= hotel.availabilityTo
       );
     });
 
-    if (this.state.filters.availabilityTo > 0) {
+    if (filters.availabilityTo > 0) {
       return hotelsFilteredByGetOutDate;
-    } else if (this.state.filters.availabilityFrom > 0) {
+    } else if (filters.availabilityFrom > 0) {
       return hotelsFilteredByGetInDate;
     }
     return hotelsFilteredByRooms;
   };
 
   render() {
+    let { filters, filteredHotels } = this.state;
+
     return (
       <div className="aplication">
         <Header
           filterHotel={this.filterHotelsById}
-          fechaDesde={this.state.filters.availabilityFrom}
+          fechaDesde={filters.availabilityFrom}
         />
-        <Hotels filteredHotels={this.state.filteredHotels} />
+        <Hotels filteredHotels={filteredHotels} />
       </div>
     );
   }
